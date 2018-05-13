@@ -10,7 +10,7 @@ class BookInline(admin.TabularInline):
 class AuthorInline(admin.TabularInline):
     model = Author 
     extra = 4 
-
+@admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
     list_display = ('book_name', 'book_url','book_lever' )
     search_fields = ('book_name',) 
@@ -27,6 +27,6 @@ class AuthorAdmin(admin.ModelAdmin):
     field = ("author_name",)
     inlines = [BookInline]
     
-admin.site.register(Book, BookAdmin)
+#admin.site.register(Book, BookAdmin)
 
 admin.site.register(Author, AuthorAdmin)
