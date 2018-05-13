@@ -14,7 +14,7 @@ class AuthorInline(admin.TabularInline):
 class BookAdmin(admin.ModelAdmin):
     list_display = ('book_name', 'book_url','book_lever' )
     search_fields = ('book_name',) 
-    ordering = ('-book_name','-book_lever')
+    ordering = ('-book_lever','book_name',)
     #inlines = [AuthorInline]
     #这个是添加书籍，改变书籍显示的
     #fields = ('book_name','book_url')
@@ -24,6 +24,8 @@ class BookAdmin(admin.ModelAdmin):
 class AuthorAdmin(admin.ModelAdmin):
     list_display = ('author_name','valuation' )
     search_fields = ('author_name',)
+    list_filter = ('sex',)
+    #编辑表单
     field = ("author_name",)
     inlines = [BookInline]
     
